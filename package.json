@@ -1,0 +1,19 @@
+{
+  "name": "image-compressor",
+  "version": "1.0.0",
+  "description": "A pure frontend image compression tool supporting JPEG, PNG, WebP, and AVIF formats",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server -p 3000",
+    "build": "echo 'No build needed for static site'"
+  },
+  "keywords": [
+    "image",
+    "compression",
+    "webp",
+    "avif",
+    "batch"
+  ],
+  "author": "",
+  "license": "MIT"
+}
