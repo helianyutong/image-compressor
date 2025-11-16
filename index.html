@@ -555,14 +555,19 @@
 
                     const compressedBlob = await canvas.convertToBlob(exportOptions);
 
-                    // 智能优化：如果压缩后更大，且尺寸没变，使用原图
+                    // 智能优化：如果压缩后更大，使用原图
                     let finalBlob = compressedBlob;
                     let usedOriginal = false;
 
-                    if (!needResize && compressedBlob.size >= file.size && settings.format === 'original') {
-                        // 尺寸未改变且压缩后更大，使用原图
-                        finalBlob = blob;
-                        usedOriginal = true;
+                    // 条件1: 尺寸未改变且压缩后体积增大，使用原图
+                    // 条件2: 格式未改变（保持原格式）且体积增大超过 5%，使用原图
+                    const sizeIncrease = (compressedBlob.size - file.size) / file.size;
+                    if (!needResize && compressedBlob.size >= file.size) {
+                        if (settings.format === 'original' || sizeIncrease > 0.05) {
+                            // 尺寸未改变且压缩后更大，或体积增大超过5%，使用原图
+                            finalBlob = blob;
+                            usedOriginal = true;
+                        }
                     }
 
                     // 返回结果
