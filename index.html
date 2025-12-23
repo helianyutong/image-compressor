@@ -381,6 +381,42 @@
             color: var(--text-secondary);
         }
 
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .beian-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .beian-info a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+
+        .beian-info a:hover {
+            color: var(--text-primary);
+        }
+
+        .beian-icon {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 1.5rem;
@@ -400,6 +436,11 @@
 
             .images-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .beian-info {
+                flex-direction: column;
+                gap: 10px;
             }
         }
     </style>
@@ -473,6 +514,18 @@
 
         <div class="images-grid" id="imagesGrid"></div>
     </div>
+
+    <footer>
+        <div class="beian-info">
+            <a href="" rel="noreferrer" target="_blank">
+                <img src="beian-icon.png" alt="公安备案图标" class="beian-icon">
+                京公网安备11011202101477号
+            </a>
+            <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">
+                京ICP备16005374号-4
+            </a>
+        </div>
+    </footer>
 
     <!-- JSZip CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
